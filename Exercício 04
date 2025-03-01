@@ -1,0 +1,27 @@
+# Função para calcular o prêmio com base nas vendas
+def calcular_salario_final(salario_fixo, total_vendas):
+    # Definindo o valor do prêmio com base nas vendas
+    if 100 < total_vendas <= 500:
+        premio = 500
+    elif 500 < total_vendas <= 750:
+        premio = 700
+    elif total_vendas > 750:
+        premio = 1000
+    else:
+        premio = 0  # Se as vendas forem menores ou iguais a 100, sem prêmio
+
+    # Calculando o salário final
+    salario_final = salario_fixo + premio
+
+    # Exibindo os resultados
+    print(f"Salário fixo: R${salario_fixo:.2f}")
+    print(f"Total de vendas: R${total_vendas:.2f}")
+    print(f"Prêmio: R${premio:.2f}")
+    print(f"Salário final: R${salario_final:.2f}")
+
+# Solicitar os dados do usuário
+salario_fixo = float(input("Digite o salário fixo do vendedor (R$): "))
+total_vendas = float(input("Digite o total de vendas efetuadas no mês (R$): "))
+
+# Chamar a função para calcular o salário final
+calcular_salario_final(salario_fixo, total_vendas)
