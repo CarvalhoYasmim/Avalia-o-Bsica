@@ -1,0 +1,27 @@
+saldo = 0.0
+
+while True:
+    print("\n(a) Consulta saldo")
+    print("(b) Saque")
+    print("(c) Depósito")
+    print("(d) Sair")
+    opcao = input("Opção: ").lower()
+    
+    if opcao == 'a':
+        print(f"Saldo: R${saldo:.2f}")
+    elif opcao == 'b':
+        valor = float(input("Valor do saque: R$ "))
+        if valor > saldo:
+            print("Saldo insuficiente!")
+        else:
+            saldo -= valor
+            print(f"Saldo: R${saldo:.2f}")
+    elif opcao == 'c':
+        valor = float(input("Valor do depósito: R$ "))
+        saldo += valor
+        print(f"Saldo: R${saldo:.2f}")
+    elif opcao == 'd':
+        print("Operação finalizada.")
+        break
+    else:
+        print("Opção inválida, tente novamente.")
