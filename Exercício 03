@@ -1,0 +1,35 @@
+# Função para calcular o desconto
+def calcular_desconto(valor_produto, codigo_desconto):
+    if codigo_desconto == 33 or codigo_desconto == 77:
+        # Desconto de 10% para o código 33 e 20% para o código 77, independentemente do valor do produto
+        if codigo_desconto == 33:
+            desconto = 10
+        else:
+            desconto = 20
+    elif codigo_desconto == 230:
+        if valor_produto > 100:
+            # Desconto de 30% para produtos maiores que R$100,00
+            desconto = 30
+        else:
+            # Desconto de 25% para produtos menores ou iguais a R$100,00
+            desconto = 25
+    else:
+        # Código de desconto inválido
+        print("Código de desconto inválido.")
+        return
+
+    # Calculando o valor do desconto
+    valor_desconto = valor_produto * (desconto / 100)
+    novo_valor = valor_produto - valor_desconto
+
+    # Exibindo os resultados
+    print(f"Valor original do produto: R${valor_produto:.2f}")
+    print(f"Faixa de desconto aplicada: {desconto}%")
+    print(f"Novo valor do produto após desconto: R${novo_valor:.2f}")
+
+# Solicitar os dados do usuário
+valor_produto = float(input("Digite o valor do produto (R$): "))
+codigo_desconto = int(input("Digite o código de desconto: "))
+
+# Chamar a função para calcular o desconto
+calcular_desconto(valor_produto, codigo_desconto)
