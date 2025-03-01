@@ -1,0 +1,40 @@
+# Função para calcular a idade da pessoa
+def calcular_idade(dia_nasc, mes_nasc, ano_nasc, dia_atual, mes_atual, ano_atual):
+    # Criando objetos de data para o nascimento e a data atual
+    data_nascimento = datetime(ano_nasc, mes_nasc, dia_nasc)
+    data_atual = datetime(ano_atual, mes_atual, dia_atual)
+    
+    # Calculando a diferença de anos
+    idade = ano_atual - ano_nasc
+
+    # Verificando se a pessoa já fez aniversário neste ano
+    if mes_atual < mes_nasc or (mes_atual == mes_nasc and dia_atual < dia_nasc):
+        idade -= 1
+
+    return idade
+
+# Função para verificar se a pessoa pode votar
+def pode_votar(idade):
+    if idade >= 16:
+        return True
+    else:
+        return False
+
+# Solicitar os dados ao usuário
+dia_nasc = int(input("Digite o dia do seu nascimento: "))
+mes_nasc = int(input("Digite o mês do seu nascimento: "))
+ano_nasc = int(input("Digite o ano do seu nascimento: "))
+
+dia_atual = int(input("Digite o dia de hoje: "))
+mes_atual = int(input("Digite o mês de hoje: "))
+ano_atual = int(input("Digite o ano de hoje: "))
+
+# Calcular a idade
+idade = calcular_idade(dia_nasc, mes_nasc, ano_nasc, dia_atual, mes_atual, ano_atual)
+
+# Informar a idade e se pode votar
+print(f"Sua idade é: {idade} anos.")
+if pode_votar(idade):
+    print("Você tem idade para votar!")
+else:
+    print("Você não tem idade para votar.")
